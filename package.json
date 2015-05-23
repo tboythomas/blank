@@ -3,5 +3,8 @@
   "version": "0.0.1",
   "description": "a hackathon hack",
   "dependencies": {
+    "express": "~4.12.4",
+    "socket.io": "~1.3.5",
+    "hjs": "0.0.6"
   }
 }
