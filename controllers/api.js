@@ -24,7 +24,7 @@ router.post('/query', function(req, res) {
 		user     : 'root',
 		password : '',
 		database : 'blank',
-		port : '3306'
+		port : 	'3306'
 	});
 
 	// check
@@ -38,20 +38,23 @@ router.post('/query', function(req, res) {
 	// QueryData is table for our mysql db
 	// email is primary key
 	// should make index on our query
-	connection.query('SELECT * FROM QueryData', // SQL FOR CHECKING MATCH, use new_query.email and new_query.query for query
+	connection.query("SELECT q.email FROM QueryData as q \
+					WHERE '" + new_query.query + "' = q.query \
+					ORDER BY q.email LIMIT 1;", // SQL FOR CHECKING MATCH, use new_query.email and new_query.query for query
 		function(err, rows, fields) {
 			if (err) {
 				res.send(err);
 			} else {
 				if (rows.length == 0) { // no matches found
-					connection.query('...insert to tab', // SQL FOR INSERTING, use new_query.email and new_query.query for query
+					console.log("Im stuck at the 2nd query");
+					connection.query("INSERT INTO QueryData VALUES ( '" + new_query.email + "', '" + new_query.query + "');", // SQL FOR INSERTING, use new_query.email and new_query.query for query
 						function(err, rows, fields) {
 							if (err) {
 								res.send(err); // error inserting
 							} else {
 								var response = {
-									"match": 0,		// no matches
-									"room_id": 0 	// don't matter
+									"match": 	0,		// no matches
+									"room_id": 	0 	// don't matter
 								};
 								res.send(response);
 							}
@@ -59,7 +62,7 @@ router.post('/query', function(req, res) {
 					)
 				} else { // matches found
 					// 1) generate a random room_id
-					var generated_room_id;
+					var generated_room_id = Math.floor(Math.random() * 999999999);
 
 					// 2) email the matched user (rows.email or something like that) with the room_id
 
@@ -74,6 +77,5 @@ router.post('/query', function(req, res) {
 		}
 	);
 });
-
 
 module.exports = router;
