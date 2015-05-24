@@ -6,11 +6,16 @@ router.get('/', function(req, res) {
 });
 
 router.get('/no_match', function(req, res) {
-	res.render('no_match');
+	res.render('no_match', {
+		query: req.query.query
+	});
 });
 
 router.get('/match', function(req, res) {
-	res.render('match');
+	res.render('match', {
+		room_id: req.query.room_id,
+		query: req.query.query
+	});
 });
 
 module.exports = router;

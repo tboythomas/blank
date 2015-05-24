@@ -33,9 +33,9 @@
 					//we found a match
 					if(data.match == 1){
 						var room = data.room_id;
-						window.location.replace("/match");
+						window.location.replace("/match?room_id=" + data.room_id + "&query=" + query);
 					}else{
-						window.location.replace("/no_match");
+						window.location.replace("/no_match?query=" + query);
 					}
 				}
 			}

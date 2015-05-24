@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>blank | No Matches Yet</title>
+		<title>blank | Match Found!</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -39,13 +39,10 @@
 				<div class="container">
 
 					<header class="major">
-						<h2>We'll send you an email when someone else also wants to {{query}} with you.
-						</h2>
+						<h2>Another person is also looking to {{query}} with you!</h2>
 						<br></br>
-						<p>blank.</p>
+						<p>We sent them an email. You can chat with them <a href="http://198.199.118.67/chat/{{room_id}}" style="color:blue;text-decoration:underline;">here</a>.</p>
 					</header>
-
-
 				</div>
 			</section>
 	</body>
