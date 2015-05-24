@@ -26,6 +26,7 @@
             });
          });
       </script>
+      <script src="js/spin.min.js"></script>
    </head>
 
 

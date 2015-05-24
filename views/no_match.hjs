@@ -39,7 +39,7 @@
 				<div class="container">
 
 					<header class="major">
-						<h2>We'll send you an email when someone else also wants to {{query}} with you.
+						<h2>We'll send you an email when someone else also wants to <span style="color:#ff8800;">{{query}}</span> with you.
 						</h2>
 						<br></br>
 						<p>blank.</p>

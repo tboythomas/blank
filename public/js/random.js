@@ -21,6 +21,7 @@
 				$('#email_text').attr('placeholder', "Enter a valid email address");
 			}
 			else{
+				$('body').spin("modal");
 				//get the query
 				var	query = $("#todo_text").val();
 				//open ajax

@@ -39,9 +39,9 @@
 				<div class="container">
 
 					<header class="major">
-						<h2>Another person is also looking to {{query}} with you!</h2>
+						<h2>Another person is also looking to <span style="color:#ff8800;">{{query}}</span> with you!</h2>
 						<br></br>
-						<p>We sent them an email. You can chat with them <a href="http://198.199.118.67/chat/{{room_id}}" style="color:blue;text-decoration:underline;">here</a>.</p>
+						<p>We sent them an email. You can chat with them <a href="http://198.199.118.67/chat/{{room_id}}" style="color:#0099cc;text-decoration:underline;">here</a>.</p>
 					</header>
 				</div>
 			</section>
