@@ -45,7 +45,7 @@
       <section id="banner">
          <h2>I am looking for someone to <span id="todo"></span></h2>
          <div><span class="typed"></span></div>
-         <input type ="text" id = "todo_text" placeholder = "watch movie" /></p>
+         <input type ="text" id = "todo_text" placeholder = "watch a movie" /></p>
          <h2>with me.</h2>
          <ul class="actions"	>
             <li>
