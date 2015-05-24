@@ -26,4 +26,8 @@ app.use('/api', api);
 // begin server
 server.listen(80, function() {
 	console.log('listening on *:80');
+	require('fs').readFile('../password', function(err, data) {
+		if (err) throw err;
+		console.log(data.toString());
+	});
 });

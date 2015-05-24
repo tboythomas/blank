@@ -1,5 +1,18 @@
 var express = require('express');
 var router = express.Router({mergeParams: true});
+var nodemailer = require('nodemailer');
+var transporter;
+
+require('fs').readFile('../password', function(err, data) {
+	if (err) throw err;
+	transporter = nodemailer.createTransport({
+		service: 'Gmail',
+		auth: {
+			user: 'blanknotify@gmail.com',
+			pass: data.toString()
+		}
+	});
+});
 
 // middleware function
 router.use(function(req, res, next) {
@@ -50,11 +63,11 @@ router.post('/query', function(req, res) {
 	connection.query("SELECT q.email FROM QueryData as q \
 					WHERE '" + new_query.query + "' = q.query \
 					ORDER BY q.email LIMIT 1;", // SQL FOR CHECKING MATCH, use new_query.email and new_query.query for query
-		function(err, rows, fields) {
+		function(err, rows_a, fields_a) {
 			if (err) {
 				res.send(err);
 			} else {
-				if (rows.length == 0) { // no matches found
+				if (rows_a.length == 0) { // no matches found
 					// console.log("Im stuck at the 2nd query");
 					connection.query("INSERT INTO QueryData VALUES ( '" + new_query.email + "', '" + new_query.query + "');", // SQL FOR INSERTING, use new_query.email and new_query.query for query
 						function(err, rows, fields) {
@@ -77,15 +90,46 @@ router.post('/query', function(req, res) {
 							} else {
 								// 1) generate a random room_id
 								var generated_room_id = Math.floor(Math.random() * 999999999);
+								console.log(rows_a);
 
 								// 2) email the matched user (rows.email or something like that) with the room_id
+								emailMessage1 = "room_id: " + generated_room_id;
+								var mailOptions1 = {
+									from: 'blank notify <blanknotify@gmail.com>',
+									to: rows_a[0].email,
+									subject: 'Match found on blank!',
+									text: emailMessage1
+								};
+								transporter.sendMail(mailOptions1, function(err, info) {
+									if (err) {
+										console.log(err);
+									} else {
+										console.log('email1 sent!');
+									}
+								});
+
+								// 2.1) email the requested user
+								emailMessage2 = "room_id: " + generated_room_id;
+								var mailOptions2 = {
+									from: 'blank notify <blanknotify@gmail.com>',
+									to: new_query.email,
+									subject: 'Match found on blank!',
+									text: emailMessage2
+								};
+								transporter.sendMail(mailOptions2, function(err, info) {
+									if (err) {
+										console.log(err);
+									} else {
+										console.log('email2 sent!');
+									}
+								});
 
 								// 3) send a response
 								var response = {
 									"match": 1,
 									"room_id": generated_room_id
 								}
-								res.send(response)
+								res.send(response);
 							}
 						}
 					)					
