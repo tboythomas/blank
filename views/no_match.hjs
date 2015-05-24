@@ -25,11 +25,11 @@
 		<!-- Header -->
 			<header id="header">
 				<!-- when in node.js change to hjs -->
-				<h1><a href="/main">blank</a></h1>
+				<h1><a href="/">blank</a></h1>
 				<nav id="nav">
 					<ul>
 						<!-- when in node.js change to hjs -->
-						<li><a href="/main">Home</a></li>
+						<li><a href="/">Home</a></li>
 					</ul>
 				</nav>
 			</header>
