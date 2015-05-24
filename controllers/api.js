@@ -34,12 +34,38 @@ router.post('/query', function(req, res) {
 	});
 
 	// 1) check if another query exists
-	connection.query('SELECT * FROM QueryData', 
+	connection.query('SELECT * FROM QueryData', // SQL FOR CHECKING MATCH, use new_query.email and new_query.query for query
 		function(err, rows, fields) {
 			if (err) {
 				res.send(err);
 			} else {
-				res.send(rows);
+				if (rows.length == 0) { // no matches found
+					connection.query('', // SQL FOR INSERTING, use new_query.email and new_query.query for query
+						function(err, rows, fields) {
+							if (err) {
+								res.send(err); // error inserting
+							} else {
+								var response = {
+									"match": 0,
+									"room_id": 0 // don't matter
+								};
+								res.send(response);
+							}
+						}
+					)
+				} else { // matches found
+					// 1) generate a random room_id
+					var generated_room_id;
+
+					// 2) email the matched user (rows.email or something like that) with the room_id
+
+					// 3) send a response
+					var response = {
+						"match": 1,
+						"room_id": generated_room_id
+					}
+					res.send(response)
+				}
 			}
 		}
 	);
