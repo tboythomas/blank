@@ -16,12 +16,21 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
-	</head>
+      <script>
+         $(function(){
+            $(".typed").typed({
+               strings: ["watch a movie", "go eat pizza", "do homework", "type whatever you want to do"],
+               typeSpeed: 100
+            });
+         });
+      </script>
+   
+   </head>
 	<body class="landing">
 
 		<!-- Header -->
 			<header id="header">
-				<h1><a href="index.html">Blank</a></h1>
+				<h1><a href="index.html">blank</a></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">Feeling Lucky!</a></li>
@@ -31,8 +40,9 @@
 
 		<!-- Banner -->
 			<section id="banner">
-				<h2>Hi . Welcome to Blank.</h2>
-				<p>I am looking for someone to <span id="todo"><input type ="text" name = "todo" value = "watch movie"></span></p>
+				<h2>I am looking for someone to <span id="todo"></span></h2>
+            <div><span class="typed"></span></div>
+            <input type ="text" name = "todo" placeholder = "watch movie"></span></p>
 				<ul class="actions"	>
 					<li>
 						<a href="#" class="button big">Do it!</a>
