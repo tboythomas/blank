@@ -93,12 +93,14 @@ router.post('/query', function(req, res) {
 								console.log(rows_a);
 
 								// 2) email the matched user (rows.email or something like that) with the room_id
-								emailMessage1 = "room_id: " + generated_room_id;
+								emailMessage1 = "Hi! Remember you wanted to " + new_query.query + 
+												"? We found a match!!<br />your secure room_id: " + generated_room_id +
+												 '<br /><a href="198.199.118.67/chat/'+generated_room_id+'">Click here to go to your blank private chat.</a>';
 								var mailOptions1 = {
 									from: 'blank notify <blanknotify@gmail.com>',
 									to: rows_a[0].email,
 									subject: 'Match found on blank!',
-									text: emailMessage1
+									html: emailMessage1
 								};
 								transporter.sendMail(mailOptions1, function(err, info) {
 									if (err) {
@@ -109,12 +111,14 @@ router.post('/query', function(req, res) {
 								});
 
 								// 2.1) email the requested user
-								emailMessage2 = "room_id: " + generated_room_id;
+								emailMessage2 = "Hi! Remember you wanted to " + new_query.query + 
+												"? We found a match!!<br />your secure room_id: " + generated_room_id +
+												 '<br /><a href="198.199.118.67/chat/'+generated_room_id+'">Click here to go to your blank private chat.</a>';
 								var mailOptions2 = {
 									from: 'blank notify <blanknotify@gmail.com>',
 									to: new_query.email,
 									subject: 'Match found on blank!',
-									text: emailMessage2
+									html: emailMessage2
 								};
 								transporter.sendMail(mailOptions2, function(err, info) {
 									if (err) {
