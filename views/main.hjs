@@ -24,39 +24,32 @@
             });
          });
       </script>
-   
    </head>
+
+
 	<body class="landing">
 
 		<!-- Header -->
-			<header id="header">
-				<h1><a href="index.html">blank</a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html">Feeling Lucky!</a></li>
-					</ul>
-				</nav>
-			</header>
+      <header id="header">
+         <h1><a href="index.html">blank</a></h1>
+         <nav id="nav">
+            <ul>
+               <li><a href="index.html">Feeling Lucky!</a></li>
+            </ul>
+         </nav>
+      </header>
 
 		<!-- Banner -->
-			<section id="banner">
-				<h2>I am looking for someone to <span id="todo"></span></h2>
-            <div><span class="typed"></span></div>
-            <input type ="text" name = "todo" placeholder = "watch movie"></span></p>
-				<ul class="actions"	>
-					<li>
-						<a href="#" class="button big">Do it!</a>
-					</li>
-				</ul>
-			</section>
-		<script>
-		  $(function(){
-		      $(".typed").typed({
-		        strings: ["watch a movie", "go eat pizza", "do homework", "type whatever you want to do"],
-		        typeSpeed: 100
-		      });
-		  });
-		</script>
-
+      <section id="banner">
+         <h2>I am looking for someone to <span id="todo"></span></h2>
+         <div><span class="typed"></span></div>
+         <input type ="text" name = "todo" placeholder = "watch movie"></span></p>
+         <h2>with me.</h2>
+         <ul class="actions"	>
+            <li>
+               <a href="#" class="button big">Do it!</a>
+            </li>
+         </ul>
+      </section>
 	</body>
 </html>
