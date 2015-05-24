@@ -46,7 +46,7 @@
       <section id="banner">
          <h2>I am looking for someone to <span id="todo"></span></h2>
          <div><span class="typed"></span></div>
-         <input type ="text" id = "todo_text" name ="todo_thing"placeholder = "watch a movie" />
+         <input type ="text" id = "todo_text" name ="todo_thing" placeholder = "watch a movie" />
          <h2>with me.</h2>
          <input type ="text" id = "email_text" name ="todo_email" placeholder = "foobar@gmail.com" /><br/>
          <ul class="actions">
