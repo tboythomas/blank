@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router({mergeParams: true});
 
-var user = require('../models/query');
-
 // middleware function
 router.use(function(req, res, next) {
 	console.log('api request logged');
@@ -47,3 +45,5 @@ router.post('/query', function(req, res) {
 		}
 	});
 });
+
+module.exports = router;
