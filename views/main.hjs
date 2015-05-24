@@ -33,10 +33,10 @@
 
 		<!-- Header -->
       <header id="header">
-         <h1><a href="index.html">blank</a></h1>
+         <h1><a >blank</a></h1>
          <nav id="nav">
             <ul>
-               <li><a href="index.html">Feeling Lucky!</a></li>
+               <li><a id="random">Feeling Lucky!</a></li>
             </ul>
          </nav>
       </header>
@@ -45,11 +45,12 @@
       <section id="banner">
          <h2>I am looking for someone to <span id="todo"></span></h2>
          <div><span class="typed"></span></div>
-         <input type ="text" id = "todo_text" placeholder = "watch a movie" /></p>
+         <input type ="text" id = "todo_text" name ="todo_thing"placeholder = "watch a movie" />
          <h2>with me.</h2>
-         <ul class="actions"	>
+         <input type ="text" id = "email_text" name ="todo_email" placeholder = "foobar@gmail.com" /><br/>
+         <ul class="actions">
             <li>
-               <a href="#" class="button big">Do it!</a>
+               <a id="submit" class="button big">Do it!</a>
             </li>
          </ul>
       </section>
