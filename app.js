@@ -11,6 +11,10 @@ app.set('view engine', 'hjs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// body parser middleware
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 // views routes
 var routes = require('./routes/index');
 app.use('/', routes);

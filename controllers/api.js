@@ -17,11 +17,12 @@ router.post('/query', function(req, res) {
 		email: req.body.email,
 		query: req.body.query
 	};
+	// db setup
 	var mysql = require('mysql');
 	var connection = mysql.createConnection({
-		host     : 'localhost',
-		user     : 'test',
-		password : 'test123',
+		host     : '198.199.118.67',
+		user     : 'root',
+		password : '',
 		database : 'blank',
 		port : '3306'
 	});
@@ -33,17 +34,15 @@ router.post('/query', function(req, res) {
 	});
 
 	// 1) check if another query exists
-	connection.query('\
-		--SELECT....\
-		', 
-	function(err, rows, fields) {
-		if (err) {
-			return callback(err);
-		} else {
-			return callback(null);
-
+	connection.query('SELECT * FROM QueryData', 
+		function(err, rows, fields) {
+			if (err) {
+				res.send(err);
+			} else {
+				res.send(rows);
+			}
 		}
-	});
+	);
 });
 
 module.exports = router;
