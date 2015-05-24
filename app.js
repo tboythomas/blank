@@ -15,6 +15,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 var routes = require('./routes/index');
 app.use('/', routes);
 
+// api routes
+var api = require('./controllers/api');
+app.use('/api', api);
+
 // begin server
 server.listen(80, function() {
 	console.log('listening on *:80');
