@@ -14,11 +14,11 @@
 		//send the data and 
 		$('#submit').click(function() {
 			//get the email 
-			var email = $('#email_text').val();
-			console.log($('#email_text').val());
+			var email = $('#email_text').val().toLowerCase(); 
+			console.log($('#email_text').val().toLowerCase());
 			//get the query
-			var	query = $("#todo_text").val();
-			console.log($("#todo_text").val());
+			var	query = $("#todo_text").val().toLowerCase();
+			console.log($("#todo_text").val().toLowerCase());
 			//open ajax
 			var ajax = new XMLHttpRequest();
 			ajax.open("POST","/api/query");
@@ -33,7 +33,7 @@
 					window.location.replace("/no_match");
 				}
 			}
-		}
+		});
 	});
 
 })();
