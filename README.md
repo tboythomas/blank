@@ -2,12 +2,6 @@
 
 CodeDay 2015 Hackathon 
 
-Web Application Created by:
-
-* William Thing -> 	Full stack
-* Pico -> 			Full Stack
-* Jisoo Jung ->		Front end + server side
-* Thomas Cheng ->		Front end
 
 Technologies used: Node.js, Sql, Html, CSS
 
