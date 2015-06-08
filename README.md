@@ -1,7 +1,5 @@
 # Blank
-##Best Project Overall
-CodeDay 2015 Hackathon 
-
+###Best Project Overall on CodeDay 2015 Hackathon 
 
 Technologies used: Node.js, Sql, Html, CSS
 
